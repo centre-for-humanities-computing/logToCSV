@@ -1,4 +1,4 @@
-# HTTP POST Request CSV Logger
+# HTTP CSV Logger
 
 appends log entries to csv files. CSV file names are configurable by request parameters. Any parameters can be logged to CSV. Post parameters must be application/x-www-form-urlencoded
 
