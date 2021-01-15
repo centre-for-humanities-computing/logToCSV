@@ -1,20 +1,13 @@
 import express      from 'express'
-import { logToCSV } from "../lib/sleepExperienceLogger"
+import writeToLog   from "./logs/writeToLog"
+import listLogFiles from './logs/listLogs'
+import getLogFile   from './logs/getLogFile'
 
 const router = express.Router()
 
-router.post('/logToCSV/:participantId/:mode/:version', async function (req, res, next) {
-  await logToCSV({
-    ...req.body,
-    ...req.params,
-  })
-    .then(() => res.end())
-    .catch(err => res.send({
-      type: 'ERROR',
-      method: req.method,
-      path: '/api/test',
-      ...err
-    }))
-})
+router.post('/logToCSV/:participantId/:mode/:version', writeToLog)
+router.get('/logs', listLogFiles)
+router.get('/logs/:participantId/:mode/:version', getLogFile)
+router.delete('/logs/:participantId/:mode/:version', deleteFile)
 
 module.exports = router
