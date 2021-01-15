@@ -1,13 +1,8 @@
-import express      from 'express'
-import writeToLog   from "./logs/writeToLog"
-import listLogFiles from './logs/listLogs'
-import getLogFile   from './logs/getLogFile'
+import express       from 'express'
+import logRouter     from './logs'
 
 const router = express.Router()
 
-router.post('/logToCSV/:participantId/:mode/:version', writeToLog)
-router.get('/logs', listLogFiles)
-router.get('/logs/:participantId/:mode/:version', getLogFile)
-router.delete('/logs/:participantId/:mode/:version', deleteFile)
+router.use('/logs', logRouter)
 
 module.exports = router

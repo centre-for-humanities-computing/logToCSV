@@ -3,13 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
-    "build": "clear && babel-node server/index.js --out-dir dist",
-    "serve": "clear && env NODE_ENV=production npm run build && node dist/index.js",
-    "start": "clear && env NODE_ENV=development nodemon --exec 'clear && babel-node' server/index.js"
+    "start": "clear && env NODE_ENV=development nodemon --exec 'clear && babel-node' bin/www"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.3",
     "dayjs": "^1.10.2",
     "debug": "~2.6.9",
     "express": "~4.16.0",
